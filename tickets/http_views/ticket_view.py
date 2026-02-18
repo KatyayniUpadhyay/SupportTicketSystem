@@ -2,28 +2,30 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from tickets.model_classes.ticket import Ticket
 from tickets.forms.ticket_serializer import TicketSerializer
+from tickets.helper_classes.ticket_helper import TicketHelper
 
 
 class TicketView(APIView):
 
     def get(self, request):
         """
-        Return list of all tickets
+        Fetch all tickets.
         """
-        tickets = Ticket.objects.all()
+        tickets = TicketHelper.get_all_tickets()
         serializer = TicketSerializer(tickets, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
         """
-        Create a new ticket
+        Create a new ticket.
         """
         serializer = TicketSerializer(data=request.data)
 
         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            ticket = TicketHelper.create_ticket(serializer.validated_data)
+            response_serializer = TicketSerializer(ticket)
+            return Response(response_serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
