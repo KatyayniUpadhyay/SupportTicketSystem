@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
+    'rest_framework',
+    'tickets',
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
@@ -73,9 +75,13 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'support_ticket_db',
+        'USER': 'katyayni',  # your Mac username
+        'PASSWORD': '',      # leave empty for Postgres.app default
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
