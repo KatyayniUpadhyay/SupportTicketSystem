@@ -4,12 +4,14 @@ certifi==2026.1.4
 cffi==2.0.0
 charset-normalizer==3.4.4
 cryptography==46.0.5
-Django==6.0.2
+Django==5.2.10
+django-cors-headers==4.9.0
 django-stubs==5.2.9
 django-stubs-ext==5.2.9
 djangorestframework==3.16.1
 djangorestframework-stubs==3.16.8
 google-ai-generativelanguage==0.6.15
+google-genai==1.64.0
 google-api-core==2.30.0
 google-api-python-client==2.190.0
 google-auth==2.49.0.dev0

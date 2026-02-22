@@ -1,0 +1,26 @@
+# Python ignore
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# Django ignore
+db.sqlite3
+media/
+static_root/
+
+# Environment and secrets
+# Note: We keep .secrets because your settings.py explicitly reads from it
+.env
+.python-version
+
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose.yml
